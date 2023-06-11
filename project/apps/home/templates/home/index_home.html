@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+
+{% block CONTENIDO1 %}
+<p style = "color: blue;">Estamos dedicados a ayudar a los bancos a aumentar su productividad y mejorar sus resultados.</p>
+<p style = "color: blue;"> En nuestro sitio web, de acuerdo al paquete que usted solicite, contará con distintas herramientas para lograr estos objetivos.</p>
+<p style = "color: blue;">Explore nuestro sitio para obtener más información y no dude en ponerse en contacto con nosotros si tiene alguna pregunta o necesita ayuda.</p>
+{% endblock CONTENIDO1 %}
+
+
+{% block CONTENIDO2 %}
+<h2><u>¡SUS DATOS SE ENCUENTRAN RESGUARDADOSs!</u></h2>
+<a href="{% url 'commission:index commission' %}">Comisiones</a>
+{% endblock CONTENIDO2 %}

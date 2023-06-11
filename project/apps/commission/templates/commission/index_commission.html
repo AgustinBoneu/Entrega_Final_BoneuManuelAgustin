@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block TITULO %}
+    <h1 style = "color: blue;">COMISIONES</h1>
+{% endblock TITULO %}
+
+{% block CONTENIDO1 %}
+<h2><u>¡GESTIÓN DE COMISIONES!</u></h2>
+<h2>Ingresar datos a la Base</h2>
+    <a href = "{% url 'commission:create commission' %}">Creación de comisiones individuales</a>
+    <a href = "{% url 'commission:input commission' %}">Ingresar valor de comisiones individuales</a>
+    <a href = "{% url 'commission:discount commission' %}">Ingresar descuentos de comisiones individuales</a>
+{% endblock CONTENIDO1 %}
+
+{% block CONTENIDO2 %}
+<a href="{% url 'home:index home' %}">Volver al menú principal</a> 
+{% endblock CONTENIDO2 %}
+

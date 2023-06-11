@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block TITULO %}CREAR UN DESCUENTO{% endblock %}
+<br>
+<br>
+{% block CONTENIDO1 %}
+
+    <form method="post">
+    {% csrf_token %}
+    
+    {{ form.as_p }}
+
+    <button type="submit">Guardar</button>
+    </form>
+
+{% endblock CONTENIDO1 %}
