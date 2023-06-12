@@ -23,7 +23,7 @@ def create_input(request):
     form = forms.InputForm(request.POST) 
     if request.method == "POST" and form.is_valid():
         form.save()
-        return redirect("index")
+        return redirect("commission:index commission")
     context = {"form": form}
     return render (request,"commission/create_input.html",context)
 

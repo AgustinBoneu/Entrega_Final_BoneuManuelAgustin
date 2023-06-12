@@ -1,14 +1,36 @@
 {% extends 'base.html' %}
 
-
-{% block CONTENIDO1 %}
-<p style = "color: blue;">Estamos dedicados a ayudar a los bancos a aumentar su productividad y mejorar sus resultados.</p>
-<p style = "color: blue;"> En nuestro sitio web, de acuerdo al paquete que usted solicite, contará con distintas herramientas para lograr estos objetivos.</p>
-<p style = "color: blue;">Explore nuestro sitio para obtener más información y no dude en ponerse en contacto con nosotros si tiene alguna pregunta o necesita ayuda.</p>
-{% endblock CONTENIDO1 %}
-
-
-{% block CONTENIDO2 %}
-<h2><u>¡SUS DATOS SE ENCUENTRAN RESGUARDADOSs!</u></h2>
-<a href="{% url 'commission:index commission' %}">Comisiones</a>
-{% endblock CONTENIDO2 %}
+{% block CONTENIDO_1 %}
+<!-- Call to Action-->
+<div class="card text-white bg-secondary my-5 py-4 text-center">
+    <div class="card-body"><p class="text-white m-0">¡Si nos contacta durante el mes de Junio recibirá una bonificación especial!</p></div>
+</div>
+<!-- Content Row-->
+<div class="row gx-4 gx-lg-5">
+    <div class="col-md-4 mb-5">
+        <div class="card h-100">
+            <div class="card-body">
+                <h2 class="card-title" style="text-align: center;">Gestión de la información</h2>
+                <p class="card-text" style="text-align: justify;">Podemos ayudarlo a organizar y acceder fácilmente a sus datos. Con una interfaz intuitiva y de características avanzadas, que le permita almacenar, buscar y recuperar información de manera rápida y sencilla. ¡No pierda más tiempo buscando datos perdidos o desorganizados!.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-5">
+        <div class="card h-100">
+            <div class="card-body">
+                <h2 class="card-title" style="text-align: center;">Reportes automatizados</h2>
+                <p class="card-text" style="text-align: justify;">¿Está cansado de pasar horas creando informes manualmente? Nuestros reportes automatizados puede ayudarlo a generar informes precisos y detallados en cuestión de minutos ahorrando tiempo y esfuerzo. ¡No pierda más tiempo en tareas repetitivas!.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-5">
+        <div class="card h-100">
+            <div class="card-body">
+                <h2 class="card-title" style="text-align: center;">Automatización de procesos</h2>
+                <p class="card-text" style="text-align: justify;">¿Está buscando una manera de mejorar la eficiencia en su empresa? Podemos ayudarlo a configurar flujos de trabajo automatizados para mejorar la productividad y reducir errores. ¡No pierda más tiempo en tareas manuales!.</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock CONTENIDO_1 %}
