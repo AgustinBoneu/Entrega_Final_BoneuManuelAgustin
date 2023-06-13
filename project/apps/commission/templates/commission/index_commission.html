@@ -1,21 +1,35 @@
+{% extends 'base.html' %}
+
 {% block TITULO %}
     <h1 style = "color: blue;">COMISIONES</h1>
 {% endblock TITULO %}
 
 {% block CONTENIDO_1 %}
+<br>
 <h2><u>¡GESTIÓN DE COMISIONES!</u></h2>
-<h2>Ingresar datos a la Base</h2>
-    <a href = "{% url 'commission:create commission' %}">Creación de comisiones individuales</a>
-    <a href = "{% url 'commission:input commission' %}">Ingresar valor de comisiones individuales</a>
-    <a href = "{% url 'commission:discount commission' %}">Ingresar descuentos de comisiones individuales</a>
+<br>
+<br>
+{% block CONTENIDO_2 %}
+    <h2>Ingresar datos a la Base</h2>
+{% endblock CONTENIDO_2 %}
+    <p>1.<a href = "{% url 'commission:create commission' %}">Crear comisiones</a></p>
+    <p>2.<a href = "{% url 'commission:input commission' %}">Ingresar valor de comisiones</a></p>
+    <p>3.<a href = "{% url 'commission:discount commission' %}">Ingresar descuentos de comisiones</a></p>
+<br>
+<br>
+{% block CONTENIDO_3 %}
+    <h2>Listar datos de la Base</h2>
+{% endblock CONTENIDO_3 %}
+    <p>1.<a href = "{% url 'commission:list commission' %}">Comisiones</a></p>
+    <p>2.<a href = "{% url 'commission:list input' %}">Monto de comisiones</a></p>
+    <p>3.<a href = "{% url 'commission:list discount' %}">Descuentos de comisiones</a></p>
 {% endblock CONTENIDO_1 %}
 
-{% block CONTENIDO_2 %}
-<br>
+{% block CONTENIDO_4 %}
 <br>
 <a href="{% url 'home:index home' %}">Volver al menú principal</a> 
-{% endblock CONTENIDO_2 %}
-
+<br>
+{% endblock CONTENIDO_4 %}
 
 
     

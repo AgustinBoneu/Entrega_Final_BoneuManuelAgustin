@@ -1,0 +1,26 @@
+{% extends 'commission/index_commission.html' %}
+
+{% block CONTENIDO_1 %}
+    <br>
+    <h2><u>¡GESTIÓN DE COMISIONES!</u></h2>
+    <br>
+    
+    {% block CONTENIDO_3 %}
+        <h2>Base de Datos: monto de comisiones</h2>
+        <br>
+        {% for categoria in categorias %}
+        <ul>
+            <li><strong><u>Comisión</u></strong>: {{categoria.idfk_commission}}, <strong><u>Monto mínimo</u></strong>: {{categoria.minimum_amount|default:"N/A"}}, <strong><u>Monto fijo</u></strong>: {{categoria.fixed_amount|default:"N/A"}}, <strong><u>Monto máximo</u></strong>: {{categoria.maximum_amount|default:"N/A"}}, <strong><u>Monto adicional</u></strong>: {{categoria.additional_amount|default:"N/A" }}.</li>
+            <a href="{% url 'commission:deleteinput_list' categoria.id %}"class = "btn btn-danger">Eliminar</a>
+            <a href="{% url 'commission:updateinput_list' categoria.id %}" class = "btn btn-primary">Actualizar</a>
+        </ul>
+        {%endfor%}
+    {% endblock CONTENIDO_3 %}
+
+{% endblock CONTENIDO_1 %}
+
+{% block CONTENIDO_4 %}
+    <br>
+    <a href="{% url 'commission:index commission' %}">Volver al menú comisiones</a> 
+    <br>
+{% endblock CONTENIDO_4 %} 

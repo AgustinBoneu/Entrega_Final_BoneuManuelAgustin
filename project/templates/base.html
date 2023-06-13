@@ -33,15 +33,18 @@
     {% endblock TITULO %}
 
 {% block CONTENIDO_1 %}
-    
+    {% block CONTENIDO_2 %}
+    {% endblock CONTENIDO_2 %}
+    {% block CONTENIDO_3 %}
+    {% endblock CONTENIDO_3 %}
 {% endblock CONTENIDO_1 %}
+<br>
 
-{% block CONTENIDO_2 %}
-    
-{% endblock CONTENIDO_2 %}
 
+{% block CONTENIDO_4 %}
+{% endblock CONTENIDO_4 %}
+<br>
 {%include 'home/footer.html'%}
-
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->

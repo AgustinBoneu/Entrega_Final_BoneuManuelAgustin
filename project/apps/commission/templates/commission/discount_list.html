@@ -1,0 +1,26 @@
+{% extends 'commission/index_commission.html' %}
+
+{% block CONTENIDO_1 %}
+    <br>
+    <h2><u>¡GESTIÓN DE COMISIONES!</u></h2>
+    <br>
+    
+    {% block CONTENIDO_3 %}
+        <h2>Base de Datos: descuentos de comisiones</h2>
+        <br>
+        {% for categoria in categorias %}
+        <ul>
+            <li><strong><u>Cliente</u></strong>: {{categoria.name_client}}, <strong><u>Porcentaje de descuento</u></strong>: {{categoria.percent_discount}}, <strong><u>Base de aplicación</u></strong>: {{categoria.application_base|default:"N/A"}}.</li>
+            <a href="{% url 'commission:deletediscount_list' categoria.id %}"class = "btn btn-danger">Eliminar</a>
+            <a href="{% url 'commission:updatediscount_list' categoria.id %}" class = "btn btn-primary">Actualizar</a>
+        </ul>
+        {%endfor%}
+    {% endblock CONTENIDO_3 %}
+
+{% endblock CONTENIDO_1 %}
+
+{% block CONTENIDO_4 %}
+    <br>
+    <a href="{% url 'commission:index commission' %}">Volver al menú comisiones</a> 
+    <br>
+{% endblock CONTENIDO_4 %} 

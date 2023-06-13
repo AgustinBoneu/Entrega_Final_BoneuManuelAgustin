@@ -1,17 +1,14 @@
 {% extends 'commission/index_commission.html' %}
 
-
-{% block TITULO %}INGRESAR MONTO DE COMISIÓN{% endblock %}
-<br>
+{% block TITULO %}ELIMINAR DESCUENTO DE COMISION{% endblock %}
 <br>
 {% block CONTENIDO_1 %}
+<br>
+<p>¿Confirmas eliminar "{{categoria}}"?</p>
 
     <form method="post">
     {% csrf_token %}
-    
-    {{ form.as_p }}
-
-    <button type="submit">Guardar</button>
+    <button type="submit">Confirmar</button>
     </form>
-
+    
 {% endblock CONTENIDO_1 %}

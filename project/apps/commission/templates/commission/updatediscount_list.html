@@ -1,0 +1,16 @@
+{% extends 'commission/index_commission.html' %}
+
+{% block TITULO %}ACTUALZIAR DESCUENTOS{% endblock %}
+<br>
+{% block CONTENIDO_1 %}
+<br>
+    <h2>Actualizar comisiones</h2>
+    
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p }}
+        <button type="submit">Guardar cambios</button>
+    </form>
+
+<a href="{% url 'commission:index commission' %}">Volver a comisiones</a> 
+{% endblock CONTENIDO_1 %} 
