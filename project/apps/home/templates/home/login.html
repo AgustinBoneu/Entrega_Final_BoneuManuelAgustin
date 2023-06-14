@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block PESTAÑA %}
+<title>Login</title>
+{% endblock PESTAÑA %}
+
+{% block TITULO %}
+    <div style="text-align: center;">
+        <br>
+        <h1 style="color: orange;">INICIAR SESIÓN</h1>
+        <br>
+    </div>
+{% endblock %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% block CONTENIDO_1 %}
+<div style="text-align: center;">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div>
+            <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+        </div>
+    </form>
+    <br>
+    <br>
+    <div class="col-lg-30">
+        <img class="img-fluid rounded mb-4 mb-lg-0" src="https://saman.om/Content/assets/images/boy.svg" alt="..." />
+    </div>
+</div>
+{% endblock CONTENIDO_1 %}
+
+
