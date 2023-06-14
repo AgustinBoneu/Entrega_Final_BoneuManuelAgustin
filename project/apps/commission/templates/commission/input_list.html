@@ -8,14 +8,26 @@
     {% block CONTENIDO_3 %}
         <h2>Base de Datos: monto de comisiones</h2>
         <br>
-        {% for categoria in categorias %}
+        {% if object_list %}
+        <div class="py-lg-4">
+            <form action="{% url 'commission:list input' %}" method="get">
+                <input name ="query" type="text" placeholder="¿Fecha?">
+            </form>
+        </div>
+
+        {% for categoria in object_list %}
         <ul>
-            <li><strong><u>Comisión</u></strong>: {{categoria.idfk_commission}}, <strong><u>Monto mínimo</u></strong>: {{categoria.minimum_amount|default:"N/A"}}, <strong><u>Monto fijo</u></strong>: {{categoria.fixed_amount|default:"N/A"}}, <strong><u>Monto máximo</u></strong>: {{categoria.maximum_amount|default:"N/A"}}, <strong><u>Monto adicional</u></strong>: {{categoria.additional_amount|default:"N/A" }}.</li>
-            <a href="{% url 'commission:deleteinput_list' categoria.id %}"class = "btn btn-danger">Eliminar</a>
+            <li><strong><u>Comisión</u></strong>: {{categoria.idfk_commission}},<strong><u>Fecha</u></strong>: {{categoria.date_of_entry}}.</li>
+            <a href="{% url 'commission:input_detail' categoria.id %}" class="btn btn-secondary">Ver detalle</a>
             <a href="{% url 'commission:updateinput_list' categoria.id %}" class = "btn btn-primary">Actualizar</a>
+            <a href="{% url 'commission:deleteinput_list' categoria.id %}"class = "btn btn-danger">Eliminar</a>
         </ul>
         {%endfor%}
-    {% endblock CONTENIDO_3 %}
+{% else %}
+    <p class="fs-4 fst-italic">No hay registros ingresados</p>
+{% endif %}
+
+{% endblock CONTENIDO_3 %}
 
 {% endblock CONTENIDO_1 %}
 

@@ -5,17 +5,31 @@
     <h2><u>¡GESTIÓN DE COMISIONES!</u></h2>
     <br>
     
-    {% block CONTENIDO_3 %}
-        <h2>Base de Datos: comisiones</h2>
-        <br>
-        {% for categoria in categorias %}
+{% block CONTENIDO_3 %}
+    <h2>Base de Datos: comisiones</h2>
+    <br>
+    {% if object_list %}
+        <div class="py-lg-4">
+            <form action="{% url 'commission:list commission' %}" method="get">
+                <input name ="query" type="text" placeholder="¿Comisión?">
+            </form>
+        </div>
+
+        {% for categoria in object_list %}
         <ul>
-            <li><strong><u>Categoría</u></strong>: {{categoria.id_category}}, <strong><u>Subcategoría</u></strong>: {{categoria.id_subcategory}}, <strong><u>Comisión</u></strong>: {{categoria.name_commission}}.</li>
-            <a href="{% url 'commission:deletecommission_list' categoria.id %}"class = "btn btn-danger">Eliminar</a>
+            <li><strong><u>Comisión</u></strong>: {{categoria.name_commission}}.</li>
+            <a href="{% url 'commission:commission_detail' categoria.id %}" class="btn btn-secondary">Ver detalle</a>
             <a href="{% url 'commission:updatecommission_list' categoria.id %}" class = "btn btn-primary">Actualizar</a>
+            <a href="{% url 'commission:deletecommission_list' categoria.id %}"class = "btn btn-danger">Eliminar</a>
         </ul>
-        {%endfor%}
-    {% endblock CONTENIDO_3 %}
+    {%endfor%}
+{% else %}
+    <p class="fs-4 fst-italic">No hay registros ingresados</p>
+{% endif %}
+
+    {% include 'commission/index_back.html' %}
+
+{% endblock CONTENIDO_3 %}
 
 {% endblock CONTENIDO_1 %}s
 

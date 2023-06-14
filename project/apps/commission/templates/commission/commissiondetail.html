@@ -1,0 +1,27 @@
+{% extends 'commission/index_commission.html' %}
+
+{% block TITULO %}<h2>Detalle de Comisiones</h2>{% endblock %}
+<br>
+<br>
+{% block CONTENIDO_1 %}
+    <ul>
+        <li>
+            <p><strong>Categoria: </strong> {{ object.id_category  }}</p>
+            <p><strong>Subcategoria: </strong> {{ object.id_subcategory  }}</p>
+            <p><strong>Nombre: </strong> {{ object.name_commission }}</p>
+            <p><strong>Descripción: </strong> {{ object.description}}</p>
+            <p><strong>Tipo de comisión: </strong>{{object.type_commission}}</p>
+            <p><strong>Tipo de ingreso: </strong>{{ object.type_cost  }}</p>
+            <p><strong>Moneda: </strong>{{object.currency }}</p>
+            <p><strong>Frecuencia de cobro: </strong>{{ object.frequency}}</p>
+            <p><strong>Base de aplicación: </strong>{{ object.application_base}}</p>
+        </li>
+    </ul>
+    <div class="d-grid gap-3">
+        {% include 'commission/index_back.html' %}
+    </div>
+
+{% endblock CONTENIDO_1 %}
+
+
+

@@ -1,0 +1,18 @@
+{% extends 'commission/index_commission.html' %}
+
+{% block TITULO %}<h2>Detalle de Comisiones</h2>{% endblock %}
+<br>
+<br>
+{% block CONTENIDO_1 %}
+    <ul>
+        <li>
+            <p><strong>Categoria: </strong>{{ object.idfk_commission}}</p>
+            <p><strong>Nombre del colaborador: </strong>{{ object.name_employee}}</p>
+            <p><strong>Nombre del cliente: </strong>{{ object.name_client}}</p>
+            <p><strong>Porcentaje de descuento: </strong>{{ object.percent_discount}}</p>
+            <p><strong>base de aplicación: </strong>{{object.application_base}}</p>
+        </li>
+    </ul>
+    <div class="d-grid gap-3"></div>
+
+{% endblock CONTENIDO_1 %}

@@ -8,13 +8,24 @@
     {% block CONTENIDO_3 %}
         <h2>Base de Datos: descuentos de comisiones</h2>
         <br>
-        {% for categoria in categorias %}
+        {% if object_list %}
+        <div class="py-lg-4">
+            <form action="{% url 'commission:list discount' %}" method="get">
+                <input name ="query" type="text" placeholder="¿Cliente?">
+            </form>
+        </div>
+
+        {% for categoria in object_list %}
         <ul>
-            <li><strong><u>Cliente</u></strong>: {{categoria.name_client}}, <strong><u>Porcentaje de descuento</u></strong>: {{categoria.percent_discount}}, <strong><u>Base de aplicación</u></strong>: {{categoria.application_base|default:"N/A"}}.</li>
-            <a href="{% url 'commission:deletediscount_list' categoria.id %}"class = "btn btn-danger">Eliminar</a>
+            <li><strong><u>Cliente</u></strong>: {{categoria.name_client}},<strong><u>Comisión</u></strong>: {{categoria.idfk_commission}}.</li>
+            <a href="{% url 'commission:discount_detail' categoria.id %}" class="btn btn-secondary">Ver detalle</a>
             <a href="{% url 'commission:updatediscount_list' categoria.id %}" class = "btn btn-primary">Actualizar</a>
+            <a href="{% url 'commission:deletediscount_list' categoria.id %}"class = "btn btn-danger">Eliminar</a>
         </ul>
         {%endfor%}
+        {% else %}
+            <p class="fs-4 fst-italic">No hay registros ingresados</p>
+        {% endif %}
     {% endblock CONTENIDO_3 %}
 
 {% endblock CONTENIDO_1 %}

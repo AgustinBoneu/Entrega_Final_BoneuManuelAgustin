@@ -1,15 +1,21 @@
 from django.shortcuts import redirect, render
+from django.http import HttpRequest, HttpResponse
 from django.urls import reverse
 from .models import Commissions_USF,Input_Commissions_USF,Discount_CommissionsBank_USF
 from . import forms
-from django.views.generic import ListView
+from django.views.generic import ListView, TemplateView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
 
 # Create your views here.
-def indexcommission (request):
-    return render(request, 'commission/index_commission.html')  
+
+class IndexViews(TemplateView):
+    template_name = "commission/index_commission.html"
+
+
+# def indexcommission (request: HttpRequest) -> HttpResponse:
+#     return render(request, "commission/index_commission.html")  
 
 class CommissionCreate(CreateView):
     model = Commissions_USF
@@ -62,7 +68,14 @@ class DiscountCreate(CreateView):
 class CommissionList(ListView):
     model = Commissions_USF
     template_name = "commission/commission_list.html"
-    context_object_name = "categorias"
+    # context_object_name = "categorias"
+    def get_queryset(self):
+        if self.request.GET.get("query"):
+            query = self.request.GET.get("query")
+            object_list = Commissions_USF.objects.filter(name_commission__icontains=query)
+        else:
+            object_list = Commissions_USF.objects.all()
+        return object_list
 
 
 # def commission_list(request):
@@ -73,7 +86,15 @@ class CommissionList(ListView):
 class DiscountList(ListView):
     model = Discount_CommissionsBank_USF
     template_name = "commission/discount_list.html"
-    context_object_name = "categorias"
+    # context_object_name = "categorias"
+
+    def get_queryset(self):
+        if self.request.GET.get("query"):
+            query = self.request.GET.get("query")
+            object_list = Discount_CommissionsBank_USF.objects.filter(name_client__icontains=query)
+        else:
+            object_list = Discount_CommissionsBank_USF.objects.all()
+        return object_list
 
 
 # def discount_list(request):
@@ -84,7 +105,14 @@ class DiscountList(ListView):
 class InputList(ListView):
     model = Input_Commissions_USF
     template_name = "commission/input_list.html"
-    context_object_name = "categorias"
+    # context_object_name = "categorias"
+    def get_queryset(self):
+        if self.request.GET.get("query"):
+            query = self.request.GET.get("query")
+            object_list = Input_Commissions_USF.objects.filter(date_of_entry__icontains=query)
+        else:
+            object_list = Input_Commissions_USF.objects.all()
+        return object_list
 
 # def input_list(request):
 #     categorias = Input_Commissions_USF.objects.all()
@@ -188,6 +216,20 @@ class DiscountUpdate(UpdateView):
 #     else:
 #         form = forms.DiscountForm(instance=categoria)
 #     return render(request, "commission/updatediscount_list.html", {"form": form})
+
+class CommissionDetail(DetailView): 
+    model = Commissions_USF
+    template_name = "commission/commissiondetail.html"
+
+class InputDetail(DetailView): 
+    model = Input_Commissions_USF
+    template_name = "commission/inputdetail.html"
+
+class DiscountDetail(DetailView): 
+    model = Discount_CommissionsBank_USF
+    template_name = "commission/discountdetail.html"
+
+
 
 
 
