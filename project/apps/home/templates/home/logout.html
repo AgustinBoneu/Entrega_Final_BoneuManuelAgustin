@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block PESTAÑA %}
 <title>Login</title>
 {% endblock PESTAÑA %}
@@ -17,7 +19,7 @@
 <br>
 {% block CONTENIDO_1 %}
     <div style="text-align: center;">
-        <img src="https://th.bing.com/th/id/OIP.MjIVJQZdayHHozD6Um6-vQAAAA?pid=ImgDet&w=256&h=256&rs=1" alt="Logout Image" />
+        <img src="{% static 'home/img/image_logout.jpeg'%}" alt="Logout Image" />
         <div class="fs-3 fst-italic">
             <br>
             <br>

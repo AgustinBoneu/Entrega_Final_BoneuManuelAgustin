@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block PESTAÑA %}
 <title>Managment</title>
@@ -12,23 +13,23 @@
 {% block CONTENIDO_1 %}   
 <br>
 <br>
-<img style="float: right; width: 60%; margin-left: 10px;" src="https://i.pinimg.com/originals/0c/66/19/0c661909437da6243166f68f51e4be30.jpg" alt="..." />
+<img style="float: right; width: 60%; margin-left: 10px;" src="{% static 'home/img/image_commission.jpg'%}" alt="..." />
 <div>
     <h2 style="display: inline-block; margin-right: 10px; text-decoration: underline; color: orange; vertical-align: middle;">Ingresar datos a la Base</h2>
     <img style="display: inline-block; width: 50px; vertical-align: middle;" class="img-fluid rounded mb-4 mb-lg-0" src="https://schoenheider-guss.com/wp-content/uploads/2019/06/Icons-Modell-200x200.png" alt="..." />
     <br>
     <br>
     <p><a href="{% url 'commission:create commission' %}" class="btn btn-dark">Crear  comisión</a></p>
-    <p><a href="{% url 'commission:input commission' %}" class="btn btn-dark">Ingresar monto de comisión</a></p>
-    <p><a href="{% url 'commission:discount commission' %}" class="btn btn-dark">Ingresar descuento de comisión</a></p>
+    <p><a href="{% url 'commission:input commission' %}" class="btn btn-primary">Ingresar monto de comisión</a></p>
+    <p><a href="{% url 'commission:discount commission' %}" class="btn btn-success">Ingresar descuento de comisión</a></p>
     <br>
     <h2 style="display: inline-block; margin-right: 10px; text-decoration: underline; color: orange; vertical-align: middle;">Consultar Base de Datos</h2>
     <img style="display:inline-block;width:50px;vertical-align:middle;" class="img-fluid rounded mb-4 mb-lg-0" src="https://thumbs.dreamstime.com/b/bot%C3%B3n-redondo-anaranjado-especial-del-icono-de-la-lupa-103974988.jpg" alt="..." />
     <br>
     <br>
     <p><a href="{% url 'commission:list commission' %}"class="btn btn-dark">Comisiones</a></p>
-    <p><a href="{% url 'commission:list input' %}"class="btn btn-dark">Monto de comisiones</a></p>
-    <p><a href="{% url 'commission:list discount' %}"class="btn btn-dark">Descuentos de comisiones</a></p>
+    <p><a href="{% url 'commission:list input' %}"class="btn btn-primary">Monto de comisiones</a></p>
+    <p><a href="{% url 'commission:list discount' %}"class="btn btn-success">Descuentos de comisiones</a></p>
 </div>
 {% endblock CONTENIDO_1 %}  
 

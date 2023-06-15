@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block PESTAÑA %}
 <title>Login</title>
@@ -30,7 +31,7 @@
     <br>
     <br>
     <div class="col-lg-30">
-        <img class="img-fluid rounded mb-4 mb-lg-0" src="https://saman.om/Content/assets/images/boy.svg" alt="..." />
+        <img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'home/img/image_login.svg'%}" alt="..." />
     </div>
 </div>
 {% endblock CONTENIDO_1 %}
