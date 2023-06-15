@@ -1,16 +1,31 @@
 {% extends 'commission/index_commission.html' %}
 
-{% block TITULO %}ACTUALZIAR DESCUENTOS{% endblock %}
+{% block TITULO %}
 <br>
+    <h2><strong>ACTUALIZAR DESCUENTO DE COMISIÓN</strong></h2>
+<br>
+{% endblock TITULO %}
+
 {% block CONTENIDO_1 %}
-<br>
-    <h2>Actualizar comisiones</h2>
-    
     <form method="POST">
         {% csrf_token %}
         {{form.as_p }}
-        <button type="submit">Guardar cambios</button>
+        <button type="submit" class="btn btn-success">Guardar</button>
     </form>
 
-<a href="{% url 'commission:index commission' %}">Volver a comisiones</a> 
 {% endblock CONTENIDO_1 %} 
+
+{% block CONTENIDO_4 %}
+    <br>    
+    <br>
+    <br>
+    <a href="{% url 'commission:discount commission' %}"class="btn btn-warning">Base de datos: Descuento de comisiones</a> 
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endblock CONTENIDO_4 %} 

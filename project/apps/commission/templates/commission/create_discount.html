@@ -1,6 +1,13 @@
 {% extends 'commission/index_commission.html' %}
 
-{% block TITULO %}CREAR UN DESCUENTO{% endblock %}
+{% block TITULO %}
+<br>
+<br>
+<strong style="font-size: larger;">INGRESAR DESCUENTO DE COMISIÓN</strong>
+<br>
+<br>
+<br>
+{% endblock %}
 <br>
 <br>
 {% block CONTENIDO_1 %}
@@ -10,7 +17,16 @@
     
     {{ form.as_p }}
 
-    <button type="submit">Guardar</button>
+    <button type="submit" class="btn btn-success">Guardar</button>
     </form>
 
 {% endblock CONTENIDO_1 %}
+
+{% block CONTENIDO_4 %}
+    <br>
+    <a href="{% url 'commission:index commission' %}"class="btn btn-warning">Volver al menú comisiones</a> 
+    <br>
+    <br>
+    <br>
+    <br>
+{% endblock CONTENIDO_4 %} 

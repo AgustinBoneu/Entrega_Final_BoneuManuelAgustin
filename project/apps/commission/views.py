@@ -6,6 +6,7 @@ from . import forms
 from django.views.generic import ListView, TemplateView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 # Create your views here.
@@ -17,7 +18,7 @@ class IndexViews(TemplateView):
 # def indexcommission (request: HttpRequest) -> HttpResponse:
 #     return render(request, "commission/index_commission.html")  
 
-class CommissionCreate(CreateView):
+class CommissionCreate(LoginRequiredMixin,CreateView):
     model = Commissions_USF
     forms_class = forms.CommissionForm
     fields = "__all__"
@@ -35,7 +36,7 @@ class CommissionCreate(CreateView):
 #         form = CommissionForm()
 #     return render(request, "commission/create_commission.html",{"form": form})
 
-class InputCreate(CreateView):
+class InputCreate(LoginRequiredMixin,CreateView):
     model = Input_Commissions_USF
     forms_class = forms.InputForm
     fields = "__all__"
@@ -50,7 +51,7 @@ class InputCreate(CreateView):
 #     context = {"form": form}
 #     return render (request,"commission/create_input.html",context)
 
-class DiscountCreate(CreateView):
+class DiscountCreate(LoginRequiredMixin,CreateView):
     model = Discount_CommissionsBank_USF
     forms_class = forms.DiscountForm
     fields = "__all__"
@@ -65,7 +66,7 @@ class DiscountCreate(CreateView):
 #     context = {"form": form}
 #     return render (request,"commission/create_discount.html",context)
 
-class CommissionList(ListView):
+class CommissionList(LoginRequiredMixin,ListView):
     model = Commissions_USF
     template_name = "commission/commission_list.html"
     # context_object_name = "categorias"
@@ -83,7 +84,7 @@ class CommissionList(ListView):
 #     context = {"categorias": categorias}
 #     return render (request,"commission/commission_list.html",context)
 
-class DiscountList(ListView):
+class DiscountList(LoginRequiredMixin,ListView):
     model = Discount_CommissionsBank_USF
     template_name = "commission/discount_list.html"
     # context_object_name = "categorias"
@@ -102,7 +103,7 @@ class DiscountList(ListView):
 #     context = {"categorias": categorias}
 #     return render (request,"commission/discount_list.html",context)
 
-class InputList(ListView):
+class InputList(LoginRequiredMixin,ListView):
     model = Input_Commissions_USF
     template_name = "commission/input_list.html"
     # context_object_name = "categorias"
@@ -119,7 +120,7 @@ class InputList(ListView):
 #     context = {"categorias": categorias}
 #     return render (request,"commission/input_list.html",context)
 
-class DeleteComission(DeleteView):
+class DeleteComission(LoginRequiredMixin,DeleteView):
     model = Commissions_USF
     forms_class = forms.CommissionForm
     fields = "__all__"
@@ -134,7 +135,7 @@ class DeleteComission(DeleteView):
 #         return redirect("commission:index commission")
 #     return render(request, "commission/deletecommission_list.html", {"categoria": categoria})
 
-class DeleteInput(DeleteView):
+class DeleteInput(LoginRequiredMixin,DeleteView):
     model = Input_Commissions_USF
     forms_class = forms.InputForm
     fields = "__all__"
@@ -148,7 +149,7 @@ class DeleteInput(DeleteView):
 #         return redirect("commission:index commission")
 #     return render(request, "commission/deleteinput_list.html", {"categoria": categoria})
 
-class DeleteDiscount(DeleteView):
+class DeleteDiscount(LoginRequiredMixin,DeleteView):
     model = Discount_CommissionsBank_USF
     forms_class = forms.DiscountForm
     fields = "__all__"
@@ -162,7 +163,7 @@ class DeleteDiscount(DeleteView):
 #         return redirect("commission:index commission")
 #     return render(request, "commission/deletediscount_list.html", {"categoria": categoria})
 
-class CommissionUpdate(UpdateView):
+class CommissionUpdate(LoginRequiredMixin,UpdateView):
     model = Commissions_USF
     forms_class = forms.CommissionForm
     fields = "__all__"
@@ -181,7 +182,7 @@ class CommissionUpdate(UpdateView):
 #         form = forms.CommissionForm(instance=categoria)
 #     return render(request, "commission/updatecommission_list.html", {"form": form})
 
-class InputUpdate(UpdateView):
+class InputUpdate(LoginRequiredMixin,UpdateView):
     model = Input_Commissions_USF
     forms_class = forms.InputForm
     fields = "__all__"
@@ -199,7 +200,7 @@ class InputUpdate(UpdateView):
 #         form = forms.InputForm(instance=categoria)
 #     return render(request, "commission/updateinput_list.html",{"form": form})
 
-class DiscountUpdate(UpdateView):
+class DiscountUpdate(LoginRequiredMixin,UpdateView):
     model = Discount_CommissionsBank_USF
     forms_class = forms.DiscountForm
     fields = "__all__"

@@ -1,14 +1,33 @@
 {% extends 'commission/index_commission.html' %}
 
-{% block TITULO %}ELIMINAR MONTO DE COMISIÓN{% endblock %}
+{% block TITULO %}
 <br>
+    <h2><strong>ELIMINAR MONTO DE COMISIÓN</strong></h2>
+<br>
+{% endblock TITULO %}
+
 {% block CONTENIDO_1 %}
 <br>
-<p>¿Confirmas eliminar "{{categoria}}"?</p>
+<p><strong>¿Confirmas eliminar el monto de la comisión "{{object.idfk_commission}}"?</strong></p>
 
     <form method="post">
     {% csrf_token %}
-    <button type="submit">Confirmar</button>
+    <button type="submit"class="btn btn-danger">Confirmar</button>
     </form>
     
 {% endblock CONTENIDO_1 %}
+
+{% block CONTENIDO_4 %}
+    <br>
+    <br>
+    <br>
+    <a href="{% url 'commission:list input' %}"class="btn btn-warning">Base de datos: Monto de comisiones</a> 
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endblock CONTENIDO_4 %} 

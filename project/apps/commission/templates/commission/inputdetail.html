@@ -1,8 +1,11 @@
 {% extends 'commission/index_commission.html' %}
 
-{% block TITULO %}<h2>Detalle del valor comisiones</h2>{% endblock %}
+{% block TITULO %}
 <br>
+    <h2><strong>DETALLE DEL MONTO DE LA COMISIÓN</strong></h2>
 <br>
+{% endblock TITULO %}
+
 {% block CONTENIDO_1 %}
     <ul>
         <li>
@@ -18,3 +21,20 @@
     <div class="d-grid gap-3"></div>
 
 {% endblock CONTENIDO_1 %}
+
+{% block CONTENIDO_4 %}
+<br>
+<br>
+<br>
+<a href="{% url 'commission:list input' %}"class="btn btn-warning">Base de datos: Monto de comisiones</a> 
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br> 
+    <br>
+    <br> 
+{% endblock CONTENIDO_4 %} 

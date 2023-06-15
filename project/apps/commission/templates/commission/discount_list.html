@@ -1,13 +1,10 @@
 {% extends 'commission/index_commission.html' %}
 
 {% block CONTENIDO_1 %}
-    <br>
-    <h2><u>¡GESTIÓN DE COMISIONES!</u></h2>
-    <br>
     
-    {% block CONTENIDO_3 %}
-        <h2>Base de Datos: descuentos de comisiones</h2>
-        <br>
+{% block CONTENIDO_3 %}
+    <br>
+        <h2><u>Base de Datos: Descuentos de comisiones</u></h2>
         {% if object_list %}
         <div class="py-lg-4">
             <form action="{% url 'commission:list discount' %}" method="get">
@@ -32,6 +29,15 @@
 
 {% block CONTENIDO_4 %}
     <br>
-    <a href="{% url 'commission:index commission' %}">Volver al menú comisiones</a> 
+    <a href="{% url 'commission:index commission' %}"class="btn btn-warning">Volver al menú comisiones</a> 
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <br>
 {% endblock CONTENIDO_4 %} 

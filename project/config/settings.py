@@ -59,7 +59,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates', BASE_DIR / 'apps' / 'commission' / 'templates'/ 'commission', BASE_DIR / 'apps' / 'commission' / 'templates'/ 'commission'],
+        'DIRS': [BASE_DIR / 'templates', BASE_DIR / 'apps' / 'commission' / 'templates'/ 'commission', BASE_DIR / 'apps' / 'home' / 'templates'/ 'home'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
