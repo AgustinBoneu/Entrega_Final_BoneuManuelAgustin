@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.contrib import admin
 
 # Create your models here.
 TYPE_CATEGORY_CHOICES = [('APERTURA DE CUENTAS', 'APERTURA DE CUENTAS'),('GASTOS DE MANTENIMIENTO', 'GASTOS DE MANTENIMIENTO'),('GASTOS DE ADMINISTRACION DE CHEQUES', 'GASTOS DE ADMINISTRACION DE CHEQUES'),('GIROS Y TRANSFERENCIAS', 'GIROS Y TRANSFERENCIAS'),('EMBARGOS Y OFICIOS JUDICIALES', 'EMBARGOS Y OFICIOS JUDICIALES'), ('OTROS GASTOS / COMISIONES ADMINISTRATIVOS Y DE SERVICIOS', 'OTROS GASTOS / COMISIONES ADMINISTRATIVOS Y DE SERVICIOS')]
@@ -7,7 +9,6 @@ CURRENCY_CHOICES = [('N/A', 'N/A'),('PESOS', 'PESOS'),('DÓLARES', 'DÓLARES')]
 FREQUENCY_CHOICES = [('N/A', 'N/A'),('EN SU OPORTUNIDAD', 'EN SU OPORTUNIDAD'),('ANUAL', 'ANUAL'),('SEMESTRAL', 'SEMESTRAL'),('TRIMESTRAL', 'TRIMESTRAL'),('MENSUAL', 'MENSUAL'),('DIARIA', 'DIARIA')]
 TYPE_COMMISSION_CHOICES = [('SIN CARGO', 'SIN CARGO'),('SOLO COSTO', 'SOLO COSTO'),('CON CARGO', 'CON CARGO')]
 TYPE_COST_CHOICES = [('N/A', 'N/A'),('VARIABLE', 'VARIABLE'),('FIJO', 'FIJO')]
-
 
 class Commissions_USF(models.Model):
     id_category = models.CharField(max_length=100, choices= TYPE_CATEGORY_CHOICES, default='APERTURA DE CUENTAS')
@@ -51,5 +52,4 @@ class Discount_CommissionsBank_USF(models.Model):
         verbose_name_plural = 'Descuentos de comisiones' 
     def __str__(self):
         return self.name_client
-    
-   
+       

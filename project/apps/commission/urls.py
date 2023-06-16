@@ -1,7 +1,6 @@
 from django.urls import path
 from . import views
 
-
 urlpatterns = [
     path("index commission/", views.IndexViews.as_view(), name="index commission"),
     path("create commission/", views.CommissionCreate.as_view(), name="create commission"),
@@ -20,8 +19,3 @@ urlpatterns = [
     path("input_detail/<int:pk>", views.InputDetail.as_view(), name="input_detail"),
     path("discount_detail/<int:pk>", views.DiscountDetail.as_view(), name="discount_detail"),
 ]
-
-
-
-
-

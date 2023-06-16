@@ -18,10 +18,9 @@ from django.contrib import admin
 from django.urls import path,include
 from . import views
 
-
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include(("home.urls","home"))),
-    path("commission/", include(("commission.urls","commission")))
+    path("commission/", include(("commission.urls","commission"))),
+    path("usuario/", include(("users.urls","usuario")))
 ]

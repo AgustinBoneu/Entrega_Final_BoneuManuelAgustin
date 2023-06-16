@@ -23,7 +23,16 @@
     {% block TITULO %}
     <br>
     {% if user.is_authenticated %}
-        <h3 style="text-align: center; color: orange">¡Bienvenido {{ user.username }}!</h3>
+    <div>
+        <div style="display: inline-block; vertical-align: middle;">
+            <h3 style="text-align: left; color: orange">¡Bienvenido {{ user.username }}!</h3>
+        </div>
+        {% if user.usuario.avatar.url %}
+        <div style="display: inline-block; vertical-align: middle;">
+            <img src="{{ user.usuario.avatar.url }}" alt="Avatar" width="100" height="100">
+        </div>
+        {% endif %}
+    </div>
     {% endif %}
         <div class="row gx-4 gx-lg-5 align-items-center my-5">
             <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'home/img/image_home.jpg'%}"alt="..." /></div>

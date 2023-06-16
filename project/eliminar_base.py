@@ -6,7 +6,6 @@ import os
 import subprocess
 from pathlib import Path
 
-
 def buscar_py_migrations(carpeta_base: Path) -> list[str] | None:
     """Recorre recursivamente todas las sub-carpetas de la carpeta especificada y añade a la lista
     'resultado' los archivos .py que encuentra."""
@@ -25,14 +24,12 @@ def buscar_py_migrations(carpeta_base: Path) -> list[str] | None:
                             resultado.append(i)
     return resultado
 
-
 def eliminar_archivos(archivos: list[str]) -> None:
     """Elimina los archivos .py de las subcarpetras migrations"""
 
     for archivo in archivos:
         print(f"\033[36m{archivo}\033[0m")
         os.remove(archivo)
-
 
 def main() -> None:
     carpeta_base = Path(__file__).resolve().parent
@@ -46,6 +43,5 @@ def main() -> None:
         eliminar_archivos(archivos)
     else:
         print("No se encontraron archivos")
-
 
 main()
