@@ -5,7 +5,6 @@ Este script indenta todos los archivos HTML de un proyecto teniendo en cuenta la
 import subprocess
 from pathlib import Path
 
-
 def buscar_html(carpeta_base: Path) -> list[str] | None:
     """Recorre recursivamente todas las sub-carpetas de la carpeta especificada y añade a la lista
     'resultado' los archivos HTML que encuentra."""
@@ -18,14 +17,12 @@ def buscar_html(carpeta_base: Path) -> list[str] | None:
                     resultado.append(elemento)
     return resultado
 
-
 def aplicar_formato_djhtml(archivos: list[str]) -> None:
     """Aplica el formato de Django a una lista de archivos HTML."""
 
     for archivo in archivos:
         print(f"\033[36m{archivo}\033[0m")
         subprocess.call(["djhtml", archivo])
-
 
 def main() -> None:
     carpeta_base = Path(__file__).resolve().parent
@@ -34,6 +31,5 @@ def main() -> None:
         aplicar_formato_djhtml(archivos)
     else:
         print("No se encontraron archivos")
-
 
 main()
